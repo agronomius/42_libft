@@ -4,6 +4,7 @@
 # define LIBFT_H
 
 #include <stdio.h>
+#include <unistd.h>
 #include <string.h>
 
 void	*ft_memset(void *b, int c, size_t len);
@@ -59,5 +60,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+char	*m_strnstr(const char *s, const char *find, size_t slen);
 
 #endif

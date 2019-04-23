@@ -9,23 +9,23 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	point;
 
 	i = 0, j = 0;
-	while (haystack[i])
+	while (big[i])
 	{
-		while (haystack[i] != needle[j])
+		while (big[i] != little[j])
 		{
-			if (!haystack[i])
+			if (!big[i])
 				return (0);
 			i++;
 		}
 		point = i;
-		while (haystack[i] == needle[j])
+		while (big[i] == little[j] && j < len)
 		{
-			if (!needle[j])
-				return ((char *)&haystack[point]);
+			if (!little[j])
+				return ((char *)&big[point]);
 			i++, j++;
 		}
-		if (!needle[j])
-			return ((char *)&haystack[point]);
+		if (!little[j])
+			return ((char *)&big[point]);
 		j = 0;
 	}
 	return (0);
@@ -44,9 +44,9 @@ int		main(int argc, char **argv)
 		strcpy(s2, argv[1]);
 		puts(s2);
 
-		printf("strnstr() return: %p\n", strnstr(s1, s2));
+		printf("strnstr() return: %s\n", m_strnstr(s1, s2, 5));
 
-		printf("ft_strnstr() return: %p\n", ft_strnstr(s1, s2));
+		printf("ft_strnstr() return: %s\n", ft_strnstr(s1, s2, 5));
 	}
 	return (0);
 }
