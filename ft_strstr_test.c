@@ -2,30 +2,30 @@
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strstr(const char *s1, const char *s2)
 {
 	size_t	i;
 	size_t	j;
 	size_t	point;
 
 	i = 0, j = 0;
-	while (haystack[i])
+	while (s1[i])
 	{
-		while (haystack[i] != needle[j])
+		while (s1[i] != s2[j])
 		{
-			if (!haystack[i])
+			if (!s1[i])
 				return (0);
 			i++;
 		}
 		point = i;
-		while (haystack[i] == needle[j])
+		while (s1[i] == s2[j])
 		{
-			if (!needle[j])
-				return ((char *)&haystack[point]);
+			if (!s2[j])
+				return ((char *)&s1[point]);
 			i++, j++;
 		}
-		if (!needle[j])
-			return ((char *)&haystack[point]);
+		if (!s2[j])
+			return ((char *)&s1[point]);
 		j = 0;
 	}
 	return (0);

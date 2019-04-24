@@ -2,30 +2,29 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
 	size_t	i;
 	size_t	j;
 	size_t	point;
 
 	i = 0, j = 0;
-	while (big[i])
+	while (i <= len)
 	{
-		while (big[i] != little[j])
-		{
-			if (!big[i])
-				return (0);
+		if (s2[j] == '\0')
+			return ((char *)s1);
+		while (s1[i] != s2[j] && i <= len)
 			i++;
-		}
 		point = i;
-		while (big[i] == little[j] && j < len)
+		while (s1[i] == s2[j] && i <= len)
 		{
-			if (!little[j])
-				return ((char *)&big[point]);
-			i++, j++;
+			if (!s2[j])
+				return ((char *)&s1[point]);
+			i++;
+			j++;
 		}
-		if (!little[j])
-			return ((char *)&big[point]);
+		if (!s2[j])
+			return ((char *)&s1[point]);
 		j = 0;
 	}
 	return (0);
@@ -44,9 +43,9 @@ int		main(int argc, char **argv)
 		strcpy(s2, argv[1]);
 		puts(s2);
 
-		printf("strnstr() return: %s\n", m_strnstr(s1, s2, 5));
+		printf("m_strnstr() return: %s\n", m_strnstr(s1, s2, 20));
 
-		printf("ft_strnstr() return: %s\n", ft_strnstr(s1, s2, 5));
+		printf("ft_strnstr() return: %s\n", ft_strnstr(s1, s2, 20));
 	}
 	return (0);
 }

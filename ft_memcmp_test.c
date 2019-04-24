@@ -25,20 +25,20 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 
 int		main(int argc, char **argv)
 {
-	char	str[50];
-	char	dst[50];
+	char	s1[50];
+	char	s2[50];
 
 	if (argc > 1)
 	{
-		strcpy(str, argv[1]);
-		puts(str);
+		strcpy(s1, argv[1]);
+		puts(s1);
 
-		strcpy(dst, "");
-		puts(dst);
+		strcpy(s2, "");
+		puts(s2);
 
-		printf("memcmp() return: %d\n", memcmp(dst, str, 5));
+		printf("memcmp() return: %d\n", memcmp(s1, s2, 5));
 
-		printf("ft_memcmp() return: %d\n", ft_memcmp(dst, str, 5));
+		printf("ft_memcmp() return: %d\n", ft_memcmp(s1, s2, 5));
 	}
 	return (0);
 }

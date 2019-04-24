@@ -4,7 +4,9 @@
 # define LIBFT_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include <ctype.h>
 #include <string.h>
 
 void	*ft_memset(void *b, int c, size_t len);
@@ -33,6 +35,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int 	ft_isspace(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 
