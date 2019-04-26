@@ -2,7 +2,7 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
@@ -11,20 +11,20 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	i = 0, j = 0;
 	while (i <= len)
 	{
-		if (s2[j] == '\0')
-			return ((char *)s1);
-		while (s1[i] != s2[j] && i <= len)
+		if (little[j] == '\0')
+			return ((char *)big);
+		while (big[i] != little[j] && i <= len)
 			i++;
 		point = i;
-		while (s1[i] == s2[j] && i <= len)
+		while (big[i] == little[j] && i <= len)
 		{
-			if (!s2[j])
-				return ((char *)&s1[point]);
+			if (!little[j])
+				return ((char *)&big[point]);
 			i++;
 			j++;
 		}
-		if (!s2[j])
-			return ((char *)&s1[point]);
+		if (!little[j])
+			return ((char *)&big[point]);
 		j = 0;
 	}
 	return (0);

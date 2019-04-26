@@ -1,6 +1,5 @@
 
 
-#include <stdlib.h>
 #include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
@@ -15,13 +14,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	s2 = src;
 	temp = (char *)malloc(sizeof(*temp) * n);
 	if (!temp)
-		return (0);
+		return (NULL);
 	while (n--)
 		temp[n] = s2[n];
 	while (i--)
 		*s1++ = *temp++;
 	return (dest);
-
 }
 
 int		main(int argc, char **argv)
