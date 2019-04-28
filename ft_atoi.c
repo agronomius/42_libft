@@ -33,7 +33,7 @@ int		ft_atoi(const char *nptr)
 		i++;
 		if (sign > 0 && res < temp)
 			return (2147483647);
-		if (sign < 0 && (sign * res)  > temp)
+		if (sign < 0 && (sign * res) > temp)
 			return (-2147483648);
 	}
 	return (sign * res);
