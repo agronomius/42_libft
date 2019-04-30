@@ -1,46 +1,47 @@
 
 
 #include "libft.h"
-#include <bsd/string.h>
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	destlen;
+	size_t	catlen;
 	size_t	srclen;
-	size_t	catsize;
+	size_t	destlen;
 
 	i = 0;
-	destlen = ft_strlen(dest);
 	srclen = ft_strlen(src);
-	catsize = size - destlen - 1;
-	while (i < catsize)
+	destlen = ft_strlen(dest);
+	catlen = size - destlen - 1;
+	if (size <= destlen)
+		return (srclen + size);
+	while ((i < catlen) && src[i])
 	{
 		dest[destlen + i] = src[i];
 		i++;
 	}
 	dest[destlen + i] = '\0';
-	return (destlen + srclen);
+	return (srclen + destlen);
 }
 
-int		main(int argc, char **argv)
+int		main(void)
 {
 	char	str[50];
-	char	dst[10];
+	char	dst[50];
 
-	if (argc > 1)
-	{
-		strcpy(str, argv[1]);
-		puts(str);
+	strcpy(str, " my friend");
+	puts(str);
 
-		strcpy(dst, "hello");
-		puts(dst);
+	strcpy(dst, "hello");
+	puts(dst);
+	printf("strlen(dst): %zu\n", strlen(dst));
 
-		printf("strlcat() return: %d\n", strlcat(dst, str, sizeof(str)));
-		puts(dst);
+	printf("strlcat() return: %lu\n", strlcat(dst, str, sizeof(dst)));
+	printf("sizeof(dst) %lu\n", sizeof(dst));
+	puts(dst);
 
-		printf("ft_strlcat() return: %d\n", ft_strlcat(dst, str, sizeof(str)));
-		puts(dst);
-   }
+	printf("ft_strlcat() return: %lu\n", ft_strlcat(dst, str, sizeof(str)));
+	puts(dst);
+
    return(0);
 }

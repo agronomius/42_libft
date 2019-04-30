@@ -2,39 +2,39 @@
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char *ft_strncpy(char *dst, const char *src, size_t n)
 {
-	size_t	i;
-	size_t	len;
+	size_t i;
 
 	i = 0;
-	len = ft_strlen(src);
-	while (i < n)
+	while (src[i] && i < n)
 	{
-		dest[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	if (len < n)
+	while (i < n)
 	{
-		while (src[i++])
-			dest[i] = '\0';
+		dst[i] = '\0';
+		i++;
 	}
-	return (dest);
+	return (dst);
 }
 
-int		main(int argc, char **argv)
+int		main(void)
 {
 	char	str[50];
 	char	dst[50];
 
-	if (argc > 1)
-	{
-		strcpy(str, argv[1]);
-		puts(str);
+	strcpy(str, "abcdefghi");
+	puts(str);
 
-		printf("strncpy() return: %s\n", strncpy(dst, str, 0));
+	strcpy(dst, "abcde");
+	puts(dst);
 
-		printf("ft_strncpy() return: %s\n", ft_strncpy(dst, str, 0));
-   }
-   return(0);
+	printf("strncpy() return: %s\n", strncpy(dst, str, 7));
+	printf("strncpy() return: %p\n", strncpy(dst, str, 7));
+	printf("ft_strncpy() return: %s\n", ft_strncpy(dst, str, 7));
+	printf("ft_strncpy() return: %p\n", ft_strncpy(dst, str, 7));
+
+	return(0);
 }

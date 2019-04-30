@@ -6,7 +6,7 @@
 /*   By: coclayto <coclayto@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 23:01:26 by coclayto          #+#    #+#             */
-/*   Updated: 2019/04/28 23:01:36 by coclayto         ###   ########.fr       */
+/*   Updated: 2019/04/29 02:01:42 by coclayto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,7 @@ char	**ft_strsplit(char const *s, char c);
 char	*ft_itoa(int n);
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
-void	ft_putendl(char const *s);
-void	ft_putnbr(int n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
-void	ft_putendl_fd(char const *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-
-char	*m_strnstr(const char *s, const char *find, size_t slen);
 
 #endif

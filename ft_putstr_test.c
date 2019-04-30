@@ -4,21 +4,13 @@
 
 void	ft_putstr(char const *s)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
+	ft_putstr_fd(s, 1)
 }
 
 
 int		main(void)
 {
-	char	*str;
+	char	*str = NULL;
 
-	str = "HELLOooO_ 	!";
 	ft_putstr(str);
 }

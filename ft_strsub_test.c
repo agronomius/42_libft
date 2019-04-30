@@ -18,15 +18,17 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 	unsigned int	slen;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	slen = ft_strlen(s);
 	if (start < slen)
 	{
 		substr = (char *)malloc(sizeof(*substr) * (len + 1));
 		if (!substr)
-			return(NULL);
+			return (NULL);
 		while (s[start] && i < len)
-				substr[i++] = s[start++];
+			substr[i++] = s[start++];
 		substr[i] = '\0';
 		return (substr);
 	}
@@ -40,6 +42,6 @@ int		main(void)
 	strcpy(s1, "abv788fghj sdg");
 	puts(s1);
 
-	printf("ft_strsub() return: %s\n", ft_strsub(s1, 2, 8));
+	printf("ft_strsub() return: %s\n", ft_strsub(s1, 13, 5));
 	return (0);
 }

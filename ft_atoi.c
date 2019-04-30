@@ -32,9 +32,9 @@ int		ft_atoi(const char *nptr)
 		res = res * 10 + (nptr[i] - '0');
 		i++;
 		if (sign > 0 && res < temp)
-			return (2147483647);
-		if (sign < 0 && (sign * res) > temp)
-			return (-2147483648);
+			return (-1);
+		if (sign < 0 && (sign * res)  > temp)
+			return (0);
 	}
 	return (sign * res);
 }

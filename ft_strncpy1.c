@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coclayto <coclayto@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/28 22:37:44 by coclayto          #+#    #+#             */
-/*   Updated: 2019/04/28 22:37:47 by coclayto         ###   ########.fr       */
+/*   Created: 2019/04/28 22:41:28 by coclayto          #+#    #+#             */
+/*   Updated: 2019/04/28 22:41:31 by coclayto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	size_t			i;
-	unsigned char	*sc1;
-	unsigned char	*sc2;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
-	sc1 = (unsigned char *)s1;
-	sc2 = (unsigned char *)s2;
-	while (sc1[i] || sc2[i])
+	len = ft_strlen(src);
+	while (i < n)
 	{
-		if (sc1[i] == sc2[i])
-			i++;
-		else
-			return (sc1[i] - sc2[i]);
+		dest[i] = src[i];
+		i++;
 	}
-	return (0);
+	if (len < n)
+	{
+		while (src[i++])
+			dest[i] = '\0';
+	}
+	return (dest);
 }

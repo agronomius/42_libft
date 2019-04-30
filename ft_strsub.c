@@ -18,6 +18,8 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 	unsigned int	slen;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	slen = ft_strlen(s);
 	if (start < slen)
