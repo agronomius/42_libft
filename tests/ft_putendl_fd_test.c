@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coclayto <coclayto@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/28 22:41:28 by coclayto          #+#    #+#             */
-/*   Updated: 2019/04/28 22:41:31 by coclayto         ###   ########.fr       */
+/*   Created: 2019/04/28 22:36:51 by coclayto          #+#    #+#             */
+/*   Updated: 2019/04/28 22:36:54 by coclayto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t n)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	size_t i;
+	while (s && *s)
+		ft_putchar_fd(*s++, fd)
+	*s = '\0';
+}
 
-	i = 0;
-	while (src[i] && i < n)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
+int main(void)
+{
+	char *s[10];
+
+	s = "HELLO";
 }

@@ -14,10 +14,10 @@
 
 int		ft_atoi(const char *nptr)
 {
-	size_t	i;
-	int		sign;
-	int		res;
-	int		temp;
+	size_t		i;
+	long int	sign;
+	long int	res;
+	int			temp;
 
 	i = 0;
 	res = 0;
@@ -33,7 +33,7 @@ int		ft_atoi(const char *nptr)
 		i++;
 		if (sign > 0 && res < temp)
 			return (-1);
-		if (sign < 0 && (sign * res)  > temp)
+		if (sign < 0 && (sign * res) > temp)
 			return (0);
 	}
 	return (sign * res);
