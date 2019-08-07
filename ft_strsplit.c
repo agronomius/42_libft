@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coclayto <coclayto@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/30 20:35:16 by coclayto          #+#    #+#             */
+/*   Updated: 2019/04/30 20:35:20 by coclayto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int		get_word_len(char const *str, char c)
@@ -17,6 +29,20 @@ static int		get_word_len(char const *str, char c)
 	return (len);
 }
 
+static char		**ft_freeall(char **str2)
+{
+	int i;
+
+	i = 0;
+	while (str2[i])
+	{
+		free(str2[i]);
+		i++;
+	}
+	free(str2);
+	return (NULL);
+}
+
 char			**ft_strsplit(char const *s, char c)
 {
 	int		i;
@@ -33,7 +59,7 @@ char			**ft_strsplit(char const *s, char c)
 	{
 		k = 0;
 		if (!(str2[i] = ft_strnew(get_word_len(&s[j], c) + 1)))
-			str2[i] = NULL;
+			return (ft_freeall(str2));
 		while (s[j] == c)
 			j++;
 		while (s[j] != c && s[j])

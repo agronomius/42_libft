@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coclayto <coclayto@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/30 20:33:26 by coclayto          #+#    #+#             */
+/*   Updated: 2019/04/30 20:33:29 by coclayto         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static size_t	get_str_len(int n)
+static size_t	str_len(int n)
 {
 	size_t		i;
 
@@ -13,21 +25,21 @@ static size_t	get_str_len(int n)
 char			*ft_itoa(int n)
 {
 	char			*str;
-	size_t			str_len;
-	unsigned int	n_cpy;
+	size_t			len;
+	unsigned int	n1;
 
-	str_len = get_str_len(n);
-	n_cpy = n;
+	len = str_len(n);
+	n1 = n;
 	if (n < 0)
 	{
-		n_cpy = -n;
-		str_len++;
+		n1 = -n;
+		len++;
 	}
-	if (!(str = ft_strnew(str_len)))
+	if (!(str = ft_strnew(len)))
 		return (NULL);
-	str[--str_len] = n_cpy % 10 + '0';
-	while (n_cpy /= 10)
-		str[--str_len] = n_cpy % 10 + '0';
+	str[--len] = n1 % 10 + '0';
+	while (n1 /= 10)
+		str[--len] = n1 % 10 + '0';
 	if (n < 0)
 		*(str + 0) = '-';
 	return (str);
